@@ -35,18 +35,18 @@ fi
 gcc -m64  src/libnyx.c -o bin64/libnyx.so -shared -fPIC -Wall -std=gnu11 -Wl,-soname,libnyx.so
 
 # pt mode builds 
-gcc -O0 -m64 -Werror src/htools/habort.c -I../../ -o bin64/habort
-gcc -O0 -m64 -Werror src/htools/hcat.c -I../../ -o bin64/hcat
-gcc -O0 -m64 -Werror src/htools/hget.c -I../../ -o bin64/hget
-gcc -O0 -m64 -Werror src/htools/hget_bulk.c -I../../ -o bin64/hget_bulk
-gcc -O0 -m64 -Werror src/htools/hpush.c -I../../ -o bin64/hpush
+gcc -O0 -m64 -Werror src/htools/habort.c -I../../ -static -o bin64/habort
+gcc -O0 -m64 -Werror src/htools/hcat.c -I../../ -static -o bin64/hcat
+gcc -O0 -m64 -Werror src/htools/hget.c -I../../ -static -o bin64/hget
+gcc -O0 -m64 -Werror src/htools/hget_bulk.c -I../../ -static -o bin64/hget_bulk
+gcc -O0 -m64 -Werror src/htools/hpush.c -I../../ -static -o bin64/hpush
 
 # no-pt mode builds
-gcc -O0 -m64 -Werror -DNO_PT_NYX src/htools/habort.c -I../../ -o bin64/habort_no_pt
-gcc -O0 -m64 -Werror -DNO_PT_NYX src/htools/hcat.c -I../../ -o bin64/hcat_no_pt
-gcc -O0 -m64 -Werror -DNO_PT_NYX src/htools/hget.c -I../../ -o bin64/hget_no_pt
-gcc -O0 -m64 -Werror -DNO_PT_NYX src/htools/hget_bulk.c -I../../ -o bin64/hget_bulk_no_pt
-gcc -O0 -m64 -Werror -DNO_PT_NYX src/htools/hpush.c -I../../ -o bin64/hpush_no_pt
+gcc -O0 -m64 -Werror -DNO_PT_NYX src/htools/habort.c -I../../ -static -o bin64/habort_no_pt
+gcc -O0 -m64 -Werror -DNO_PT_NYX src/htools/hcat.c -I../../ -static -o bin64/hcat_no_pt
+gcc -O0 -m64 -Werror -DNO_PT_NYX src/htools/hget.c -I../../ -static -o bin64/hget_no_pt
+gcc -O0 -m64 -Werror -DNO_PT_NYX src/htools/hget_bulk.c -I../../ -static -o bin64/hget_bulk_no_pt
+gcc -O0 -m64 -Werror -DNO_PT_NYX src/htools/hpush.c -I../../ -static -o bin64/hpush_no_pt
 
 # loader support both modes (PT & NO-PT)
-gcc -O0 -m64 -static -Werror src/loader.c -I../../ -o bin64/loader
+gcc -O0 -m64 -static -Werror src/loader.c -I../../ -static -o bin64/loader

@@ -35,18 +35,18 @@ fi
 gcc -m32  src/libnyx.c -o bin32/libnyx.so -shared -fPIC -Wall -std=gnu11 -Wl,-soname,libnyx.so
 
 # pt mode builds
-gcc -O0 -m32 -Werror src/htools/habort.c -I../../ -o bin32/habort
-gcc -O0 -m32 -Werror src/htools/hcat.c -I../../ -o bin32/hcat
-gcc -O0 -m32 -Werror src/htools/hget.c -I../../ -o bin32/hget
+gcc -O0 -m32 -Werror src/htools/habort.c -I../../ -static -o bin32/habort
+gcc -O0 -m32 -Werror src/htools/hcat.c -I../../ -static -o bin32/hcat
+gcc -O0 -m32 -Werror src/htools/hget.c -I../../ -static -o bin32/hget
 #gcc -O0 -m32 -Werror src/htools/hget_bulk.c -I../../agents -o bin32/hget_bulk
-gcc -O0 -m32 -Werror src/htools/hpush.c -I../../ -o bin32/hpush
+gcc -O0 -m32 -Werror src/htools/hpush.c -I../../ -static -o bin32/hpush
 
 # no-pt mode builds
-gcc -O0 -m32 -Werror -DNO_PT_NYX src/htools/habort.c -I../../ -o bin32/habort_no_pt
-gcc -O0 -m32 -Werror -DNO_PT_NYX src/htools/hcat.c -I../../ -o bin32/hcat_no_pt
-gcc -O0 -m32 -Werror -DNO_PT_NYX src/htools/hget.c -I../../ -o bin32/hget_no_pt
+gcc -O0 -m32 -Werror -DNO_PT_NYX src/htools/habort.c -I../../ -static -o bin32/habort_no_pt
+gcc -O0 -m32 -Werror -DNO_PT_NYX src/htools/hcat.c -I../../ -static -o bin32/hcat_no_pt
+gcc -O0 -m32 -Werror -DNO_PT_NYX src/htools/hget.c -I../../ -static -o bin32/hget_no_pt
 #gcc -O0 -m32 -Werror -DNO_PT_NYX src/htools/hget_bulk.c -I../../agents -o bin32/hget_bulk_no_pt
-gcc -O0 -m32 -Werror -DNO_PT_NYX src/htools/hpush.c -I../../ -o bin32/hpush_no_pt
+gcc -O0 -m32 -Werror -DNO_PT_NYX src/htools/hpush.c -I../../ -static -o bin32/hpush_no_pt
 
 # loader support both modes (PT & NO-PT)
 #gcc -O0 -m32 -static -Werror src/loader.c -I../../agents -o bin32/loader
