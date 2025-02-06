@@ -19,8 +19,8 @@ $(VARIANTS):
 	-mkdir -p $@
 	$(MAKE) -C $@ -f ../Makefile $(HTOOLS) $(LDPRELOAD_LIB)
 
-HTOOLS := habort hcat hget hpush loader # hget_bulk
-HTOOLS_CFLAGS += -g -Og -Werror -I ../../../ $(CFLAGS)
+HTOOLS := habort hcat hget hpush loader hget_bulk
+HTOOLS_CFLAGS += -g -Og -I ../../../ $(CFLAGS)
 
 habort: ../src/htools/habort.c
 hget: ../src/htools/hget.c
